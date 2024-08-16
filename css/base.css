@@ -1,0 +1,43 @@
+:root {
+    /* Color Variables */
+    --primary-color: #2E3A59;
+    /* Deep Blue */
+    --secondary-color: #FFC857;
+    /* Amber */
+    --accent-color: #43BCCD;
+    /* Cyan */
+    --background-color: #F4F7F6;
+    /* Off-white */
+    --text-color: #333333;
+    /* Dark Gray */
+}
+
+* {
+    overflow-x: hidden !important;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+p,
+a,
+li {
+    font-weight: 400;
+}
+
+.btn {
+    border: none;
+}

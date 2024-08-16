@@ -1,0 +1,195 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: var(--primary-color);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transition: top 0.3s ease-in-out;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 100px;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--background-color);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.contact-button .btn {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-button .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* Off-canvas menu */
+.off-canvas-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: var(--primary-color);
+    padding-top: 100px;
+    transition: right 0.3s;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay layer */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.off-canvas-menu.open {
+    right: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--background-color);
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--accent-color);
+}
+
+.off-canvas-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-right: auto;
+    text-align: start;
+    padding-left: 30px;
+}
+
+.off-canvas-menu li {
+    margin: 20px 0;
+}
+
+.off-canvas-menu a {
+    color: var(--background-color);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.off-canvas-menu a:hover {
+    color: var(--accent-color);
+}
+
+/* Menu toggle button */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* Fixed Contact Button */
+.fixed-contact-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 1001;
+    display: none;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.fixed-contact-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links,
+    .contact-button {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .fixed-contact-btn {
+        display: flex;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+}

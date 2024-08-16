@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/icon.png" type="image/x-icon">
+    <title>MAKING AN IMPACT</title>
+    <!-- libs -->
+    <div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+            integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+            integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+    </div>
+    <!-- mine -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/work.css">
+    <link rel="stylesheet" href="css/testimonials.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+    <!-- nav -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">
+                    <img src="imgs/logo.png" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+            </ul>
+            <div class="contact-button">
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+
+            <!-- Off-canvas menu -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="off-canvas-menu">
+                <div class="close-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
+
+            <!-- Fixed Contact Button -->
+            <a href="#contact" class="fixed-contact-btn">
+                <i class="fa-solid fa-address-book"></i>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content" data-aos="fade-right">
+                <h1>Amr Fayez Alahwany</h1>
+                <h2>- Software Developer<br>- Aspiring AI Engineer</h2>
+                <p>Building innovative solutions and contributing to the future of technology.</p>
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fa-solid fa-message"></i> Get in Touch
+                </a>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="imgs/prof.jpg" alt="Amr Fayez Alahwany">
+            </div>
+        </section>
+        <section class="about" id="about">
+            <div class="about-content" data-aos="fade-up">
+                <h2>About Me</h2>
+                <p>
+                    I am a committed software and AI engineer with a strong track record of delivering high-quality code
+                    and innovative
+                    solutions. I excel in front-end and back-end development, leading projects from concept to
+                    completion. Passionate
+                    about learning and collaboration, I consistently exceed expectations and add value to team projects.
+                </p>
+                <a href="#work" class="btn btn-secondary">
+                    <i class="fa-solid fa-briefcase"></i> My Work
+                </a>
+            </div>
+            <div class="about-image" data-aos="fade-left">
+                <img src="imgs/laptop.webp" alt="Floating Laptops Graphic">
+            </div>
+        </section>
+        <section class="services" id="services">
+            <h2>My Services</h2>
+            <div class="service-cards">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Front-end Development</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>
+                                Creating responsive, user-friendly interfaces with a focus on clean design and seamless
+                                user experiences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="service-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>Back-end Development</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>
+                                Building robust and scalable back-end systems, ensuring data integrity and performance
+                                across various platforms.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="service-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>AI/ML Solutions</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>
+                                Developing innovative AI and machine learning solutions, transforming data into
+                                actionable insights and smart applications.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="work" id="work">
+            <h2>My Work</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('imgs/PortfolioImgs/taxiMore.png');">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="project-logo">
+                                <img src="imgs/PortfolioImgs/taxiLogo.png" alt="Project Logo">
+                            </div>
+                            <h3 class="project-title">Taxi More</h3>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-abstract">
+                                <p>Elite transportaion service that connects with multiple service providers to
+                                    accomodate to user needs.</p>
+                                <a href="https://taximore.co.uk/" target="_blank" class="project-link">
+                                    Open Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('imgs/PortfolioImgs/EA.png');">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="project-logo">
+                                <img src="imgs/PortfolioImgs/euro-akademy.png" alt="Project Logo">
+                            </div>
+                            <h3 class="project-title">Euro Akademy</h3>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-abstract">
+                                <p>Educational website that make studying abroad easier for students.</p>
+                                <a href="https://euroakademy.com/" target="_blank" class="project-link">
+                                    Open Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('imgs/PortfolioImgs/tatweer.png');">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="project-logo">
+                                <img src="imgs/PortfolioImgs/download.png" alt="Project Logo">
+                            </div>
+                            <h3 class="project-title">Tatweer Misr</h3>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-abstract">
+                                <p>QR-code reservation system with dynamic dashboard.</p>
+                                <a href="#projectModal" class="project-link" data-bs-toggle="modal"
+                                    data-bs-target="#projectModal" data-video-src="imgs/PortfolioImgs/tatweerVideo.mp4">
+                                    View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('imgs/PortfolioImgs/cambridge.png');">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="project-logo">
+                                <img src="imgs/PortfolioImgs/cambridgeLogo.png" alt="Project Logo">
+                            </div>
+                            <h3 class="project-title">Cambridge College</h3>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-abstract">
+                                <p>Accreditation business for educational institutions.</p>
+                                <a href="https://www.cambridge-college.me.uk/" target="_blank" class="project-link">
+                                    Open Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('imgs/PortfolioImgs/phoenix.png');">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="project-logo">
+                                <img src="imgs/PortfolioImgs/phoenixacademy.png" alt="Project Logo">
+                            </div>
+                            <h3 class="project-title">Phoenix Academy</h3>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-abstract">
+                                <p>Accreditation business for educational institutions.</p>
+                                <a href="https://phoenixacademy.com/" target="_blank" class="project-link">
+                                    Open Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('imgs/PortfolioImgs/british.png');">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="project-logo">
+                                <img src="imgs/PortfolioImgs/logo.png" alt="Project Logo">
+                            </div>
+                            <h3 class="project-title">The British Board</h3>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-abstract">
+                                <p>Accreditation business for educational institutions.</p>
+                                <a href="https://thebritishboard.com/" target="_blank" class="project-link">
+                                    Open Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('imgs/PortfolioImgs/SCCIconference.png');">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="project-logo">
+                                <img src="imgs/PortfolioImgs/SCCIlogo.png" alt="Project Logo">
+                            </div>
+                            <h3 class="project-title">SCCI Conference</h3>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-abstract">
+                                <p>Conference System for submitting, and rating tasks.</p>
+                                <a href="#projectModal" class="project-link" data-bs-toggle="modal"
+                                    data-bs-target="#projectModal" data-video-src="imgs/PortfolioImgs/confVideo.mp4">
+                                    View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('imgs/PortfolioImgs/SCCIgallery.png');">
+                            <div class="hover-icon">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <div class="project-logo">
+                                <img src="imgs/PortfolioImgs/SCCIlogo.png" alt="Project Logo">
+                            </div>
+                            <h3 class="project-title">SCCI Gallery</h3>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-abstract">
+                                <p>Student Club gallery throughout the previous years.</p>
+                                <a href="https://amrfayezz1.github.io/scciGallery/21/gallery21.html" target="_blank"
+                                    class="project-link">
+                                    Open Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bootstrap Modal -->
+            <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="projectModalLabel">Project Demo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <video id="projectVideo" controls style="width: 100%;">
+                                <source src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="testimonials" id="testimonials">
+            <h2>
+                Testimonials
+                <h5>What People Say</h5>
+            </h2>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card">
+                            <p>"Amr is a phenomenal developer. His work on our project exceeded all expectations, and he
+                                delivered on time with incredible attention to detail."</p>
+                            <h3>- John Doe, CEO of TechCorp</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <p>"Working with Amr was a pleasure. He brings innovative solutions to the table and is
+                                always willing to go the extra mile."</p>
+                            <h3>- Jane Smith, Product Manager at InnovateX</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <p>"Amr’s expertise in AI and software development is unmatched. He has a deep understanding
+                                of the technologies and how to apply them effectively."</p>
+                            <h3>- Mark Wilson, CTO of FutureAI</h3>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <section class="contact-me" id="contact">
+            <h2>Let's Connect!
+                <div class="icon-container">
+                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-comments"></i>
+                    <i class="fas fa-paper-plane"></i>
+                    <i class="fas fa-smile"></i>
+                </div>
+            </h2>
+            <p>
+                I’m excited to hear about your projects and ideas. Whether you have a question, want to collaborate, or
+                just want to say hi, feel free to drop a message. I’ll get back to you as soon as I can!
+            </p>
+            <form class="contact-form" action="your-form-processing-url" method="post">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    Send Message
+                </button>
+            </form>
+
+            <!-- Success Modal -->
+            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel">Message Sent</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Thank you for reaching out!
+                            <br>
+                            I'll get back to you as soon as possible.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <img src="imgs/logo.png" alt="Logo">
+        </div>
+        <div class="footer-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="footer-social">
+                <a href="https://linkedin.com/in/amrfayezz1" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/amrfayezz1" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:amrfayez.247@gmail.com" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- libs -->
+    <div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+            integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+            integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+            integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    </div>
+    <!-- mine -->
+    <script>
+        AOS.init({
+            offset: 120,  // Trigger animations when the element is 120px from the viewport
+            delay: 0,     // No delay on start of animation
+            duration: 800, // Duration of animation
+            easing: 'ease', // Easing for animations
+            once: true,    // Whether animation should happen only once
+            mirror: false, // Whether elements should animate out while scrolling past them
+        });
+    </script>
+    <script src="js/app.js"></script>
+    <script>
+        (function () {
+            emailjs.init("UzDiZVRKfhjMQ946X");
+        })();
+
+        document.querySelector('.contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get the submit button and spinner elements
+            var submitBtn = document.getElementById('submitBtn');
+
+            // Disable the button and show the spinner
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            emailjs.sendForm('service_zvzhitg', 'template_portfolio', this)
+                .then(function () {
+                    // Enable the button and hide the spinner
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Send Message';
+
+                    // Show success modal
+                    var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    successModal.show();
+
+                    // Reset the form
+                    document.querySelector('.contact-form').reset();
+                }, function (error) {
+                    // Enable the button and hide the spinner
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Send Message';
+
+                    console.error('Failed to send email:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
