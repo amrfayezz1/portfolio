@@ -12,15 +12,12 @@
     /* Dark Gray */
 }
 
-* {
-    overflow-x: hidden !important;
-}
-
 body {
     margin: 0;
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden !important;
 }
 
 h1,

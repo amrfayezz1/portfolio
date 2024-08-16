@@ -24,6 +24,7 @@
     margin: 0 auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
 .testimonial-card p {
@@ -42,6 +43,15 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    position: relative;
+}
+
+.carousel-control-prev-icon {
+    right: 35px;
+}
+
+.carousel-control-next-icon {
+    left: 35px;
 }
 
 .testimonial-card:hover {
@@ -50,7 +60,7 @@
 }
 
 .carousel-item {
-    height: 200px;
+    height: 300px;
 }
 
 @media (max-width: 768px) {

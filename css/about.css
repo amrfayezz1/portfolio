@@ -6,6 +6,7 @@
     background-color: var(--primary-color);
     color: var(--background-color);
     min-height: 80vh;
+    overflow-x: hidden;
 }
 
 .about-content {
@@ -40,6 +41,7 @@
 
 .about-image {
     max-width: 50%;
+    min-width: 200px;
 }
 
 .about-image img {

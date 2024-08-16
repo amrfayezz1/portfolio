@@ -1,5 +1,5 @@
 .work {
-    padding: 100px 50px;
+    padding: 100px 20px;
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
@@ -152,7 +152,7 @@
     }
 
     .work .project-card {
-        width: 80%;
+        width: 100%;
         margin-bottom: 30px;
     }
 }

@@ -1,5 +1,5 @@
 .services {
-    padding: 100px 50px;
+    padding: 100px 20px;
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
@@ -23,7 +23,7 @@
     perspective: 1000px;
     /* Ensures 3D effect for each card */
     width: 300px;
-    height: 300px;
+    height: 330px;
     transition: transform 0.3s ease;
     /* Handles hover effect */
     margin-bottom: 30px;
@@ -95,7 +95,7 @@
     }
 
     .service-card {
-        width: 80%;
+        width: 100%;
     }
 }
 
