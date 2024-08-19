@@ -1,5 +1,5 @@
 .work {
-    padding: 100px 20px;
+    padding: 50px 20px;
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
@@ -113,17 +113,18 @@
 .work .project-abstract p {
     font-size: 1rem;
     text-align: center;
+    margin: 0;
 }
 
 .work .project-link {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px;
     display: inline-block;
     transition: color 0.3s ease;
     position: relative;
     z-index: 3;
+    padding: 20px 30px;
 }
 
 .work .project-link:hover {
