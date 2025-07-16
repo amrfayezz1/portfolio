@@ -188,7 +188,6 @@ const projects: Project[] = [
       "- Robust seeding, migration, and admin notification system\n" +
       "The project is designed for scalability and secure e-commerce operations.",
     image: "/imgs/PortfolioImgs/marasem.png",
-    liveUrl: "https://marasem-frontend.vercel.app/",
     videoUrl: undefined,
     category: "freelance",
     technologies: ["Laravel", "Dashboard", "MySQL", "REST API", "Bootstrap"],
