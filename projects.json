@@ -102,8 +102,6 @@
     "description": "A full-featured art marketplace backend with social login and Paymob payment integration.",
     "longDescription": "Marasem is a Laravel-based backend powering an art marketplace platform. It features: - Social login (Google, Facebook, Behance) with secure token-based authentication - Paymob payment gateway integration with HMAC validation and PDF invoice generation - RESTful API with Swagger documentation - Modular architecture for categories, collections, events, and more - Robust seeding, migration, and admin notification system The project is designed for scalability and secure e-commerce operations.",
     "image": "/imgs/PortfolioImgs/marasem.png",
-    "liveUrl": "https://marasem-frontend.vercel.app/",
-
     "category": "freelance",
     "technologies": ["Laravel", "Dashboard", "MySQL", "REST API", "Bootstrap"],
     "timeline": "2024",
