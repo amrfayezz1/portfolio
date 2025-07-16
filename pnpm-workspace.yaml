@@ -1,7 +1,0 @@
-ignoredBuiltDependencies:
-  - nx
-
-onlyBuiltDependencies:
-  - '@tsparticles/engine'
-  - react-tsparticles
-  - tsparticles-engine
