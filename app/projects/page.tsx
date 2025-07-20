@@ -36,6 +36,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ParticleSystem from "@/components/particle-system";
+import Navbar from "@/components/navbar";
 
 interface Project {
   id: string;
@@ -341,12 +342,41 @@ const categories = [
   { value: "university", label: "University", icon: GraduationCap },
 ];
 
+const getCategoryColor = (category: string) => {
+  switch (category) {
+    case "freelance":
+      return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+    case "personal":
+      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
+    case "work":
+      return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200";
+    case "university":
+      return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200";
+    default:
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
+  }
+};
+
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case "completed":
+      return "bg-green-500";
+    case "in-progress":
+      return "bg-yellow-500";
+    case "maintained":
+      return "bg-blue-500";
+    default:
+      return "bg-gray-500";
+  }
+};
+
 export default function ProjectsPage() {
   // State for search and filters
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
   const [modalVideo, setModalVideo] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
@@ -369,8 +399,12 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+      {/* Navigation */}
+      <Navbar />
+
       {/* Header */}
-      <section className="relative min-h-[80vh] py-20 bg-gradient-to-r from-blue-600/10 to-purple-600/10 overflow-hidden">
+      <section className="relative min-h-[80vh] py-20 bg-gradient-to-r from-blue-600/10 to-purple-600/10 overflow-hidden pt-28">
+        {/* Added pt-28 for navbar spacing */}
         {/* Particle System */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <ParticleSystem
@@ -525,6 +559,7 @@ export default function ProjectsPage() {
                     key={project.id}
                     project={project}
                     index={index}
+                    onReadMore={setSelectedProject}
                     onWatchDemo={setModalVideo}
                   />
                 ))}
@@ -533,6 +568,144 @@ export default function ProjectsPage() {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* Project Details Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative bg-white dark:bg-slate-900 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 p-6 rounded-t-lg">
+                <button
+                  className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 dark:hover:text-white text-2xl font-bold"
+                  onClick={() => setSelectedProject(null)}
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <div className="flex items-start gap-4">
+                  <img
+                    src={selectedProject.image || "/placeholder.svg"}
+                    alt={selectedProject.title}
+                    className="w-20 h-20 object-cover rounded-lg"
+                  />
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      {selectedProject.title}
+                    </h2>
+                    <div className="flex items-center gap-4 text-sm text-slate-600 dark:text-slate-300">
+                      <Badge
+                        className={getCategoryColor(selectedProject.category)}
+                      >
+                        {selectedProject.category.charAt(0).toUpperCase() +
+                          selectedProject.category.slice(1)}
+                      </Badge>
+                      <div className="flex items-center">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {selectedProject.timeline}
+                      </div>
+                      <div className="flex items-center">
+                        <div
+                          className={`w-3 h-3 rounded-full mr-2 ${getStatusColor(
+                            selectedProject.status
+                          )}`}
+                        />
+                        {selectedProject.status.charAt(0).toUpperCase() +
+                          selectedProject.status.slice(1)}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6">
+                {/* Description */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold mb-3 text-slate-900 dark:text-white">
+                    About This Project
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">
+                    {selectedProject.longDescription}
+                  </p>
+                </div>
+
+                {/* Technologies */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold mb-3 text-slate-900 dark:text-white">
+                    Technologies Used
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.technologies.map((tech) => (
+                      <Badge key={tech} variant="outline" className="text-sm">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Demo Video */}
+                {selectedProject.videoUrl && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-semibold mb-3 text-slate-900 dark:text-white">
+                      Project Demo
+                    </h3>
+                    <video
+                      src={selectedProject.videoUrl}
+                      controls
+                      className="w-full h-64 rounded-lg bg-black"
+                      poster={selectedProject.image}
+                    />
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  {selectedProject.liveUrl && (
+                    <Button size="lg" className="flex-1" asChild>
+                      <a
+                        href={selectedProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Visit Live Website
+                      </a>
+                    </Button>
+                  )}
+                  {selectedProject.videoUrl && (
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="flex-1"
+                      onClick={() => {
+                        setModalVideo(selectedProject.videoUrl!);
+                        setSelectedProject(null);
+                      }}
+                    >
+                      <Video className="w-4 h-4 mr-2" />
+                      Watch in Fullscreen
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Modal Video Player */}
       <AnimatePresence>
@@ -576,40 +749,14 @@ export default function ProjectsPage() {
 function ProjectCard({
   project,
   index,
+  onReadMore,
   onWatchDemo,
 }: {
   project: Project;
   index: number;
+  onReadMore?: (project: Project) => void;
   onWatchDemo?: (url: string) => void;
 }) {
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "freelance":
-        return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
-      case "personal":
-        return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
-      case "work":
-        return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200";
-      case "university":
-        return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200";
-      default:
-        return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
-    }
-  };
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "completed":
-        return "bg-green-500";
-      case "in-progress":
-        return "bg-yellow-500";
-      case "maintained":
-        return "bg-blue-500";
-      default:
-        return "bg-gray-500";
-    }
-  };
-
   return (
     <motion.div
       layout
@@ -618,9 +765,10 @@ function ProjectCard({
       exit={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -5 }}
-      className="group"
+      className="group cursor-pointer"
+      onClick={() => onReadMore && onReadMore(project)}
     >
-      <Card className="h-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
+      <Card className="h-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm flex flex-col">
         {/* Project Image */}
         <div className="relative overflow-hidden">
           <img
@@ -650,42 +798,23 @@ function ProjectCard({
           )}
 
           {/* Overlay Links */}
-          <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {project.liveUrl && (
-              <Button
-                size="sm"
-                className="bg-white/90 text-slate-900 hover:bg-white"
-                asChild
-              >
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Eye className="w-4 h-4 mr-2" />
-                  Go to Website
-                </a>
-              </Button>
-            )}
-            {project.videoUrl && (
-              <Button
-                size="sm"
-                variant="outline"
-                className="bg-white/90 border-white/90 text-slate-900 hover:bg-white"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onWatchDemo && onWatchDemo(project.videoUrl!);
-                }}
-              >
-                <Video className="w-4 h-4 mr-2" />
-                Watch Demo
-              </Button>
-            )}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <Button
+              size="sm"
+              className="bg-white/90 text-slate-900 hover:bg-white"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onReadMore && onReadMore(project);
+              }}
+            >
+              <Eye className="w-4 h-4 mr-2" />
+              Read More
+            </Button>
           </div>
         </div>
 
-        <CardHeader>
+        <CardHeader className="flex-grow">
           <div className="flex items-center justify-between mb-2">
             <Badge className={getCategoryColor(project.category)}>
               {project.category.charAt(0).toUpperCase() +
@@ -703,11 +832,9 @@ function ProjectCard({
           <CardDescription className="text-slate-600 dark:text-slate-300">
             {project.description}
           </CardDescription>
-        </CardHeader>
 
-        <CardContent>
           {/* Technologies */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 mt-4">
             {project.technologies.slice(0, 4).map((tech) => (
               <Badge key={tech} variant="outline" className="text-xs">
                 {tech}
@@ -719,36 +846,23 @@ function ProjectCard({
               </Badge>
             )}
           </div>
+        </CardHeader>
 
+        <CardContent className="pt-0">
           {/* Action Buttons */}
           <div className="flex gap-2">
-            {project.liveUrl && (
-              <Button size="sm" className="flex-1" asChild>
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="w-3 h-3 mr-2" />
-                  Go to Website
-                </a>
-              </Button>
-            )}
-            {project.videoUrl && (
-              <Button
-                size="sm"
-                variant="outline"
-                className="flex-1 bg-transparent"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onWatchDemo && onWatchDemo(project.videoUrl!);
-                }}
-              >
-                <Video className="w-3 h-3 mr-2" />
-                Watch Demo
-              </Button>
-            )}
+            <Button
+              size="sm"
+              className="flex-1"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onReadMore && onReadMore(project);
+              }}
+            >
+              <Eye className="w-3 h-3 mr-2" />
+              Read More
+            </Button>
           </div>
         </CardContent>
       </Card>

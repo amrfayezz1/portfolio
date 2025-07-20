@@ -3,5 +3,6 @@ ignoredBuiltDependencies:
 
 onlyBuiltDependencies:
   - '@tsparticles/engine'
+  - '@vercel/speed-insights'
   - react-tsparticles
   - tsparticles-engine
