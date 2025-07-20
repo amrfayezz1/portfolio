@@ -1,0 +1,12 @@
+.scroll-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.scroll-navbar.hidden {
+  top: -100px; /* Adjust based on navbar height */
+}

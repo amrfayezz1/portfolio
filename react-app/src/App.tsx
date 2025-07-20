@@ -5,7 +5,9 @@ import {
   Navigation, 
   Button, 
   FormGroup, 
-  Modal 
+  Modal,
+  MobileMenu,
+  ScrollNavbar
 } from './components';
 import { 
   services, 
@@ -74,19 +76,22 @@ function App() {
   return (
     <div className="App">
       {/* Header */}
-      <header>
-        <nav className="navbar">
-          <div className="logo">
-            <a href="/" onClick={(e) => e.preventDefault()}>
-              <img src="imgs/logo.png" alt="Logo" />
-            </a>
-          </div>
-          <Navigation items={navItems} className="nav-links" />
-          <div className="contact-button">
-            <Button href="#contact">Contact Me</Button>
-          </div>
-        </nav>
-      </header>
+      <ScrollNavbar>
+        <header>
+          <nav className="navbar">
+            <div className="logo">
+              <a href="/" onClick={(e) => e.preventDefault()}>
+                <img src="imgs/logo.png" alt="Logo" />
+              </a>
+            </div>
+            <Navigation items={navItems} className="nav-links" />
+            <div className="contact-button">
+              <Button href="#contact">Contact Me</Button>
+            </div>
+            <MobileMenu navItems={navItems} />
+          </nav>
+        </header>
+      </ScrollNavbar>
 
       <main>
         {/* Hero Section */}
