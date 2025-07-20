@@ -1,0 +1,21 @@
+.service-card {
+  /* Inherits from the main service card styles */
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color, #007bff);
+}
+
+.service-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.service-card .card-back p {
+  padding: 1rem;
+  margin: 0;
+  line-height: 1.6;
+}

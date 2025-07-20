@@ -1,0 +1,37 @@
+/* Card styles will be imported from the existing CSS */
+.card {
+  /* Placeholder - actual styles will come from existing CSS files */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.hover-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
