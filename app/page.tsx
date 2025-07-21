@@ -20,6 +20,12 @@ import {
   Github,
   Linkedin,
   Youtube,
+  Construction,
+  Building,
+  Building2,
+  Factory,
+  Hammer,
+  Wrench,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -33,6 +39,12 @@ import { Badge } from "@/components/ui/badge";
 import ContactForm from "@/components/contact-form";
 import ParticleSystem from "@/components/particle-system";
 import Navbar from "@/components/navbar";
+import ProjectCard, {
+  type Project,
+  getCategoryColor,
+  getStatusColor,
+} from "@/components/project-card";
+import { getLatestProjects } from "@/lib/projects";
 import Link from "next/link";
 
 const journeySteps = [
@@ -138,242 +150,8 @@ const skills = [
   "PHP",
 ];
 
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  image: string;
-  liveUrl?: string;
-  videoUrl?: string;
-  category: "freelance" | "personal" | "work" | "university";
-  technologies: string[];
-  timeline: string;
-  status: "completed" | "in-progress" | "maintained";
-  featured: boolean;
-}
-
-const getCategoryColor = (category: string) => {
-  switch (category) {
-    case "freelance":
-      return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
-    case "personal":
-      return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
-    case "work":
-      return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200";
-    case "university":
-      return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200";
-    default:
-      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
-  }
-};
-
-const getStatusColor = (status: string) => {
-  switch (status) {
-    case "completed":
-      return "bg-green-500";
-    case "in-progress":
-      return "bg-yellow-500";
-    case "maintained":
-      return "bg-blue-500";
-    default:
-      return "bg-gray-500";
-  }
-};
-
-// Featured projects data
-const featuredProjects: Project[] = [
-  {
-    id: "araneb",
-    title: "Araneb - Rabbit Farm Tracker",
-    description: "A mobile rabbit farm tracker with offline-first data sync.",
-    longDescription:
-      "Araneb is a Flutter-powered mobile app for managing every aspect of a rabbit farm. It features:\n" +
-      "- Offline-first local storage with SQLite and Supabase sync when online\n" +
-      "- Role-based access for Admins and Workers (including warehouse supervisors)\n" +
-      "- Detailed animal records: tag number, breed, status (in Arabic), birthdate, number of births/matings, last birth/mating dates\n" +
-      "- Intuitive dashboards and PDF reports to monitor farm metrics\n",
-    image: "/imgs/PortfolioImgs/araneb.jpg",
-    liveUrl: undefined,
-    videoUrl: undefined,
-    category: "freelance",
-    technologies: [
-      "Flutter",
-      "SQLite",
-      "Supabase",
-      "Offline-First Architecture",
-    ],
-    timeline: "2025",
-    status: "in-progress",
-    featured: true,
-  },
-  {
-    id: "smartdoc",
-    title: "SmartDoc - AI-Powered Medical Assistant",
-    description:
-      "A full-stack AI web app for medical diagnosis suggestions and patient consultations.",
-    longDescription:
-      "SmartDoc is an AI-powered web application designed to assist healthcare professionals with intelligent diagnosis suggestions and patient consultation tools. It features a secure authentication system, interactive chatbot (Microsoft Bot Framework), dashboard analytics, settings management, and a professional contact system. The platform is built as a unified Laravel 11 application with modern frontend technologies (Bootstrap, Tailwind CSS, jQuery, AOS) and provides seamless API documentation via Swagger/OpenAPI. SmartDoc streamlines medical workflows, helping doctors make informed decisions efficiently.",
-    image: "/imgs/PortfolioImgs/smartdoc.png",
-    liveUrl: undefined,
-    videoUrl: "/imgs/PortfolioImgs/smartdoc.mp4",
-    category: "university",
-    technologies: [
-      "Laravel",
-      "PHP",
-      "MySQL",
-      "Bootstrap",
-      "jQuery",
-      "Microsoft Bot Framework",
-      "Machine Learning",
-      "REST API",
-      "NLP",
-    ],
-    timeline: "2025",
-    status: "completed",
-    featured: true,
-  },
-  {
-    id: "chauffeurs-hub",
-    title: "Chauffeurs Hub",
-    description:
-      "A unified platform for drivers and operators to manage bookings, routes, and performance.",
-    longDescription:
-      "Chauffeurs Hub is a responsive web application designed to streamline chauffeur service operations. Built with a Laravel backend and a Next.js/TypeScript front end, it features real-time job listings, Google Maps integration for route planning, a driver ranking and analytics dashboard, and admin tools for operators to monitor and assign jobs efficiently.",
-    image: "/imgs/PortfolioImgs/CH.png",
-    liveUrl: undefined,
-    videoUrl: "/imgs/PortfolioImgs/CH.mp4",
-    category: "work",
-    technologies: ["Laravel", "jQuery", "MySQL", "Bootstrap", "REST API"],
-    timeline: "2025",
-    status: "in-progress",
-    featured: true,
-  },
-];
-
-function ProjectCard({
-  project,
-  index,
-  onReadMore,
-  onWatchDemo,
-}: {
-  project: Project;
-  index: number;
-  onReadMore?: (project: Project) => void;
-  onWatchDemo?: (url: string) => void;
-}) {
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -5 }}
-      className="group cursor-pointer"
-      onClick={() => onReadMore && onReadMore(project)}
-    >
-      <Card className="h-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm flex flex-col">
-        {/* Project Image */}
-        <div className="relative overflow-hidden">
-          <img
-            src={project.image || "/placeholder.svg"}
-            alt={project.title}
-            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-          {/* Status Indicator */}
-          <div className="absolute top-4 left-4">
-            <div
-              className={`w-3 h-3 rounded-full ${getStatusColor(
-                project.status
-              )}`}
-            />
-          </div>
-
-          {/* Featured Badge */}
-          {project.featured && (
-            <div className="absolute top-4 right-4">
-              <Badge className="bg-yellow-500 text-yellow-900">
-                <Star className="w-3 h-3 mr-1" />
-                Featured
-              </Badge>
-            </div>
-          )}
-
-          {/* Overlay Links */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <Button
-              size="sm"
-              className="bg-white/90 text-slate-900 hover:bg-white"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onReadMore && onReadMore(project);
-              }}
-            >
-              <Eye className="w-4 h-4 mr-2" />
-              Read More
-            </Button>
-          </div>
-        </div>
-
-        <CardHeader className="flex-grow">
-          <div className="flex items-center justify-between mb-2">
-            <Badge className={getCategoryColor(project.category)}>
-              {project.category.charAt(0).toUpperCase() +
-                project.category.slice(1)}
-            </Badge>
-            <div className="flex items-center text-sm text-slate-500">
-              <Calendar className="w-3 h-3 mr-1" />
-              {project.timeline}
-            </div>
-          </div>
-
-          <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
-            {project.title}
-          </CardTitle>
-          <CardDescription className="text-slate-600 dark:text-slate-300">
-            {project.description}
-          </CardDescription>
-
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-2 mt-4">
-            {project.technologies.slice(0, 4).map((tech) => (
-              <Badge key={tech} variant="outline" className="text-xs">
-                {tech}
-              </Badge>
-            ))}
-            {project.technologies.length > 4 && (
-              <Badge variant="outline" className="text-xs">
-                +{project.technologies.length - 4} more
-              </Badge>
-            )}
-          </div>
-        </CardHeader>
-
-        <CardContent className="pt-0">
-          {/* Action Buttons */}
-          <div className="flex gap-2">
-            <Button
-              size="sm"
-              className="flex-1"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onReadMore && onReadMore(project);
-              }}
-            >
-              <Eye className="w-3 h-3 mr-2" />
-              Read More
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
-  );
-}
+// Get the latest 3 projects for the main page
+const latestProjects = getLatestProjects(3);
 
 export default function JourneyPortfolio() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -575,7 +353,7 @@ export default function JourneyPortfolio() {
               asChild
             >
               <Link href="/projects">
-                <Eye className="w-4 h-4 mr-2" />
+                <Hammer className="w-4 h-4 mr-2" />
                 View Projects
               </Link>
             </Button>
@@ -585,7 +363,7 @@ export default function JourneyPortfolio() {
         {/* Scroll Indicator */}
         <motion.button
           type="button"
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 focus:outline-none"
+          className="absolute bottom-6 z-10 focus:outline-none"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
           aria-label="Scroll to about section"
@@ -898,43 +676,22 @@ export default function JourneyPortfolio() {
           </motion.p>
 
           {/* Projects Grid */}
-          <section className="py-20">
-            <div className="max-w-6xl mx-auto px-4">
-              <AnimatePresence>
-                {featuredProjects.length === 0 ? (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="text-center py-20"
-                  >
-                    <div className="text-6xl mb-4">🔍</div>
-                    <h3 className="text-2xl font-semibold mb-2">
-                      No projects found
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-300">
-                      Try adjusting your search terms or filters
-                    </p>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    layout
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                  >
-                    {featuredProjects.map((project, index) => (
-                      <ProjectCard
-                        key={project.id}
-                        project={project}
-                        index={index}
-                        onReadMore={setSelectedProject}
-                        onWatchDemo={setModalVideo}
-                      />
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </section>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            {latestProjects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onReadMore={setSelectedProject}
+                onWatchDemo={setModalVideo}
+              />
+            ))}
+          </motion.div>
 
           {/* Project Details Modal */}
           <AnimatePresence>
@@ -1125,7 +882,7 @@ export default function JourneyPortfolio() {
           >
             <Button
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300 mt-8"
               asChild
             >
               <Link href="/projects">
@@ -1258,7 +1015,7 @@ export default function JourneyPortfolio() {
               className="rounded-full shadow-lg bg-white dark:bg-slate-800 border border-blue-600 hover:bg-blue-50 dark:hover:bg-slate-700 text-blue-600 dark:text-blue-400"
               aria-label="View Projects"
             >
-              <Eye className="w-6 h-6" />
+              <Hammer className="w-6 h-6" />
             </Button>
           </Link>
         </div>

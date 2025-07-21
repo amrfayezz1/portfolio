@@ -24,17 +24,42 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { name: "Home", href: "#home", icon: Home },
-  { name: "About", href: "#about", icon: User },
-  { name: "Journey", href: "#timeline", icon: GraduationCap },
+  {
+    name: "Home",
+    href: "#home",
+    icon: Home,
+    fallbackHref: "/",
+  },
+  {
+    name: "About",
+    href: "#about",
+    icon: User,
+    fallbackHref: "/#about",
+  },
+  {
+    name: "Journey",
+    href: "#timeline",
+    icon: GraduationCap,
+    fallbackHref: "/#timeline",
+  },
   {
     name: "Projects",
     href: "#projects",
     icon: Briefcase,
     fallbackHref: "/projects",
   },
-  { name: "Skills", href: "#skills", icon: Wrench },
-  { name: "Contact", href: "#contact", icon: Mail },
+  {
+    name: "Skills",
+    href: "#skills",
+    icon: Wrench,
+    fallbackHref: "/#skills",
+  },
+  {
+    name: "Contact",
+    href: "#contact",
+    icon: Mail,
+    fallbackHref: "/#contact",
+  },
 ];
 
 interface NavbarProps {
