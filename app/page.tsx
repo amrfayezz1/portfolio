@@ -508,7 +508,7 @@ export default function JourneyPortfolio() {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1, duration: 0.5 }}
-                  className="absolute top-8 -right-2 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
+                  className="absolute top-0 -right-2 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
                 >
                   Laravel
                 </motion.div>
@@ -524,7 +524,7 @@ export default function JourneyPortfolio() {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.4, duration: 0.5 }}
-                  className="absolute bottom-8 -left-2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
+                  className="absolute bottom-0 -left-2 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
                 >
                   Python
                 </motion.div>
