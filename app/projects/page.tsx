@@ -350,6 +350,23 @@ export default function ProjectsPage() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
+                  {selectedProject.githubUrl && (
+                    <Button
+                      size="lg"
+                      className="flex-1"
+                      asChild
+                      variant={"secondary"}
+                    >
+                      <a
+                        href={selectedProject.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        View Repo
+                      </a>
+                    </Button>
+                  )}
                   {selectedProject.liveUrl && (
                     <Button size="lg" className="flex-1" asChild>
                       <a

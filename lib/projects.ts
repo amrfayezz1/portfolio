@@ -13,6 +13,7 @@ export const allProjects: Project[] = [
       "- Intuitive dashboards and PDF reports to monitor farm metrics\n",
     image: "/imgs/PortfolioImgs/araneb.jpg",
     liveUrl: undefined,
+    githubUrl: undefined,
     videoUrl: undefined,
     category: "freelance",
     technologies: [
@@ -34,6 +35,7 @@ export const allProjects: Project[] = [
       "SmartDoc is an AI-powered web application designed to assist healthcare professionals with intelligent diagnosis suggestions and patient consultation tools. It features a secure authentication system, interactive chatbot (Microsoft Bot Framework), dashboard analytics, settings management, and a professional contact system. The platform is built as a unified Laravel 11 application with modern frontend technologies (Bootstrap, Tailwind CSS, jQuery, AOS) and provides seamless API documentation via Swagger/OpenAPI. SmartDoc streamlines medical workflows, helping doctors make informed decisions efficiently.",
     image: "/imgs/PortfolioImgs/smartdoc.png",
     liveUrl: undefined,
+    githubUrl: "https://github.com/amrfayezz1/SmartDoc",
     videoUrl: "/imgs/PortfolioImgs/smartdoc.mp4",
     category: "university",
     technologies: [
@@ -59,7 +61,8 @@ export const allProjects: Project[] = [
     longDescription:
       "Chauffeurs Hub is a responsive web application designed to streamline chauffeur service operations. Built with a Laravel backend and a Next.js/TypeScript front end, it features real-time job listings, Google Maps integration for route planning, a driver ranking and analytics dashboard, and admin tools for operators to monitor and assign jobs efficiently.",
     image: "/imgs/PortfolioImgs/CH.png",
-    liveUrl: undefined,
+    liveUrl: "https://chauffeurshub.uk/",
+    githubUrl: undefined,
     videoUrl: "/imgs/PortfolioImgs/CH.mp4",
     category: "work",
     technologies: ["Laravel", "jQuery", "MySQL", "Bootstrap", "REST API"],
@@ -84,6 +87,7 @@ export const allProjects: Project[] = [
       "- Fully responsive design for mobile and desktop experiences\n",
     image: "/imgs/PortfolioImgs/luscent.png",
     liveUrl: "https://luscentcandle.com/",
+    githubUrl: undefined,
     videoUrl: "/imgs/PortfolioImgs/luscent.mp4",
     category: "freelance",
     technologies: [
@@ -116,6 +120,7 @@ export const allProjects: Project[] = [
       "Built with Laravel 12 backend, the site demonstrates enterprise-level architecture with proper MVC patterns, database migrations, and modular design.",
     image: "/imgs/PortfolioImgs/GRP.png",
     liveUrl: "https://www.grprestigechauffeur.com/",
+    githubUrl: undefined,
     videoUrl: undefined,
     category: "work",
     technologies: [
@@ -141,6 +146,7 @@ export const allProjects: Project[] = [
       "Speech-to-Text Notes is a modern web application that simplifies note-taking by allowing users to speak their thoughts directly into the browser. Built with Laravel, it features real-time speech recognition (Web Speech API), user accounts, guest mode, rich text editing, responsive design, and secure database storage. Users can register, use guest mode, format notes, and manage them from any device.",
     image: "/imgs/PortfolioImgs/stt.png",
     liveUrl: undefined,
+    githubUrl: "https://github.com/amrfayezz1/speech-to-text-notes",
     videoUrl: undefined,
     category: "personal",
     technologies: [
@@ -169,6 +175,7 @@ export const allProjects: Project[] = [
       "- Robust seeding, migration, and admin notification system\n" +
       "The project is designed for scalability and secure e-commerce operations.",
     image: "/imgs/PortfolioImgs/marasem.png",
+    githubUrl: undefined,
     videoUrl: undefined,
     category: "freelance",
     technologies: ["Laravel", "Dashboard", "MySQL", "REST API", "Bootstrap"],
@@ -185,6 +192,7 @@ export const allProjects: Project[] = [
       "Taxi More is an elite transportation platform that connects users with multiple service providers to accommodate various needs. Features include real-time booking, provider integration, and seamless user experience.",
     image: "/imgs/PortfolioImgs/taxiMore.png",
     liveUrl: "https://taximore.co.uk/",
+    githubUrl: undefined,
     category: "work",
     technologies: ["Laravel", "jQuery", "Git", "Hosting", "REST API"],
     timeline: "2024",
@@ -200,6 +208,7 @@ export const allProjects: Project[] = [
       "Euro Akademy is an educational platform designed to simplify the process of studying abroad for students. It provides resources, application management, and guidance for international education.",
     image: "/imgs/PortfolioImgs/EA.png",
     liveUrl: "https://euroakademy.com/",
+    githubUrl: undefined,
     category: "work",
     technologies: ["WordPress", "jQuery", "PHP", "Hosting", "REST API"],
     timeline: "2023",
@@ -213,6 +222,7 @@ export const allProjects: Project[] = [
     longDescription:
       "Tatweer Misr is a QR-code based reservation system featuring a dynamic dashboard for real-time management and analytics. It streamlines reservations and enhances operational efficiency.",
     image: "/imgs/PortfolioImgs/tatweer.png",
+    githubUrl: undefined,
     videoUrl: "/imgs/PortfolioImgs/tatweerVideo.mp4",
     category: "work",
     technologies: ["React", "Laravel", "Dashboard"],
@@ -228,6 +238,7 @@ export const allProjects: Project[] = [
     longDescription:
       "HRProject is a web application designed to streamline HR processes for small organizations. It allows administrators to manage employee records, handle vacation requests, and track attendance. The system features a user-friendly interface, secure login, CRUD operations for employees, and vacation management workflows. Built with vanilla JavaScript, HTML, and CSS, it demonstrates strong front-end fundamentals and practical HR automation.",
     image: "/imgs/PortfolioImgs/HR.png",
+    githubUrl: "https://github.com/amrfayezz1/DjangoHR",
     videoUrl: "/imgs/PortfolioImgs/HRvideo.mp4",
     category: "university",
     technologies: [
@@ -250,6 +261,7 @@ export const allProjects: Project[] = [
       "Cambridge College provides accreditation services for educational institutions, ensuring quality and compliance with international standards.",
     image: "/imgs/PortfolioImgs/cambridge.png",
     liveUrl: "https://www.cambridge-college.me.uk/",
+    githubUrl: undefined,
     category: "freelance",
     technologies: ["PHP", "MySQL", "jQuery", "Hosting"],
     timeline: "2022",
@@ -264,6 +276,7 @@ export const allProjects: Project[] = [
       "Phoenix Academy offers accreditation and educational services, supporting institutions in achieving excellence and recognition.",
     image: "/imgs/PortfolioImgs/phoenix.png",
     liveUrl: "https://phoenixacademy.uk.com/",
+    githubUrl: undefined,
     category: "freelance",
     technologies: ["PHP", "MySQL", "jQuery", "Hosting"],
     timeline: "2022",
@@ -278,6 +291,7 @@ export const allProjects: Project[] = [
       "The British Board specializes in accreditation for educational institutions, providing evaluation and certification services.",
     image: "/imgs/PortfolioImgs/british.png",
     liveUrl: "https://thebritishboard.com/",
+    githubUrl: undefined,
     category: "freelance",
     technologies: ["PHP", "MySQL", "jQuery", "Hosting"],
     timeline: "2022",
@@ -291,6 +305,7 @@ export const allProjects: Project[] = [
     longDescription:
       "SCCI Conference is a system for managing conference submissions and ratings, streamlining the review process for academic and professional events.",
     image: "/imgs/PortfolioImgs/SCCIconference.png",
+    githubUrl: undefined,
     videoUrl: "/imgs/PortfolioImgs/confVideo.mp4",
     category: "university",
     technologies: ["PHP", "jQuery", "MySQL"],
@@ -306,6 +321,7 @@ export const allProjects: Project[] = [
       "SCCI Gallery showcases the history and achievements of the Student Club through a curated gallery of events and activities.",
     image: "/imgs/PortfolioImgs/SCCIgallery.png",
     liveUrl: "https://amrfayezz1.github.io/scciGallery/21/gallery21.html",
+    githubUrl: "https://github.com/amrfayezz1/scciGallery",
     category: "university",
     technologies: ["HTML", "Bootstrap", "jQuery"],
     timeline: "2021",

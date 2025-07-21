@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Star, Eye } from "lucide-react";
+import { Calendar, Star, Eye, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,6 +19,7 @@ export interface Project {
   longDescription: string;
   image: string;
   liveUrl?: string;
+  githubUrl?: string;
   videoUrl?: string;
   category: "freelance" | "personal" | "work" | "university";
   technologies: string[];
