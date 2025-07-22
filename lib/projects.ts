@@ -14,7 +14,7 @@ export const allProjects: Project[] = [
     image: "/imgs/PortfolioImgs/araneb.jpg",
     liveUrl: undefined,
     githubUrl: undefined,
-    videoUrl: "/imgs/PortfolioImgs/araneb.mp4",
+    videoUrl: "/imgs/PortfolioImgs/araneb-mobile.mp4",
     category: "freelance",
     technologies: [
       "Flutter",
