@@ -328,7 +328,7 @@ export default function JourneyPortfolio() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            From curious student to software developer - explore the path that
+            From curious student to AI/Software Engineer - explore the path that
             shaped my career
           </motion.p>
           <motion.div
@@ -403,10 +403,10 @@ export default function JourneyPortfolio() {
                   Hi, I'm Amr Fayez 👋
                 </h3>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                  A passionate <strong>Full-Stack Developer</strong> and{" "}
-                  <strong>AI Graduate</strong> at Cairo University. I specialize
-                  in creating scalable web applications and have a deep interest
-                  in artificial intelligence and machine learning.
+                  A passionate <strong>Full-Stack Software Engineer</strong> and{" "}
+                  <strong>AI Engineer</strong> graduated from Cairo University.
+                  I specialize in creating scalable web applications and have a
+                  deep interest in Artificial Intelligence and Machine Learning.
                 </p>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                   With experience in both frontend and backend technologies, I
