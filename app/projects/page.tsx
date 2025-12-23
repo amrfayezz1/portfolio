@@ -1,6 +1,7 @@
 ﻿"use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -47,12 +48,26 @@ const categories = [
 ];
 
 export default function ProjectsPage() {
+  // Get URL parameters
+  const searchParams = useSearchParams();
+
   // State for search and filters
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
   const [modalVideo, setModalVideo] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // Load project from URL parameter on mount
+  useEffect(() => {
+    const projectId = searchParams.get("id");
+    if (projectId) {
+      const project = allProjects.find((p) => p.id === projectId);
+      if (project) {
+        setSelectedProject(project);
+      }
+    }
+  }, [searchParams]);
 
   const filteredProjects = useMemo(() => {
     return allProjects.filter((project) => {
