@@ -23,7 +23,7 @@ export const allProjects: Project[] = [
       "Offline-First Architecture",
     ],
     timeline: "2025",
-    status: "in-progress",
+    status: "completed",
     featured: true,
   },
   {
@@ -86,7 +86,7 @@ export const allProjects: Project[] = [
       "- Google Analytics setup and on-page SEO optimization\n" +
       "- Fully responsive design for mobile and desktop experiences\n",
     image: "/imgs/PortfolioImgs/luscent.png",
-    liveUrl: "https://luscentcandle.com/",
+    // liveUrl: "https://luscentcandle.com/",
     githubUrl: undefined,
     videoUrl: "/imgs/PortfolioImgs/luscent.mp4",
     category: "freelance",
@@ -101,7 +101,7 @@ export const allProjects: Project[] = [
     ],
     timeline: "2025",
     status: "completed",
-    featured: true,
+    featured: false,
   },
   {
     id: "gr-prestige-chauffeur",
@@ -215,7 +215,7 @@ export const allProjects: Project[] = [
     technologies: ["WordPress", "jQuery", "PHP", "Hosting", "REST API"],
     timeline: "2023",
     status: "completed",
-    featured: false,
+    featured: true,
   },
   {
     id: "tatweer-misr",
