@@ -24,7 +24,7 @@ export const allProjects: Project[] = [
     ],
     timeline: "2025",
     status: "completed",
-    featured: true,
+    featured: false,
   },
   {
     id: "smartdoc",
