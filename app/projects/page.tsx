@@ -18,6 +18,8 @@ import {
   GraduationCap,
   Video,
   X,
+  Share2,
+  Check,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -57,6 +59,7 @@ export default function ProjectsPage() {
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
   const [modalVideo, setModalVideo] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [copiedLink, setCopiedLink] = useState(false);
 
   // Load project from URL parameter on mount
   useEffect(() => {
@@ -87,6 +90,32 @@ export default function ProjectsPage() {
   }, [searchTerm, selectedCategory, showFeaturedOnly]);
 
   const featuredProjects = getFeaturedProjects();
+
+  const handleShareProject = async () => {
+    if (!selectedProject) return;
+
+    const shareUrl = `${window.location.origin}/projects?id=${selectedProject.id}`;
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: selectedProject.title,
+          text: selectedProject.description,
+          url: shareUrl,
+        });
+      } else {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopiedLink(true);
+        setTimeout(() => setCopiedLink(false), 2000);
+      }
+    } catch (error) {
+      if (error instanceof Error && error.name !== "AbortError") {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopiedLink(true);
+        setTimeout(() => setCopiedLink(false), 2000);
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
@@ -280,13 +309,34 @@ export default function ProjectsPage() {
             >
               {/* Modal Header */}
               <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 p-6 rounded-t-lg">
-                <button
-                  className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 dark:hover:text-white text-2xl font-bold"
-                  onClick={() => setSelectedProject(null)}
-                  aria-label="Close"
-                >
-                  &times;
-                </button>
+                <div className="absolute top-4 right-4 flex items-center gap-2">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={handleShareProject}
+                    title="Share this project"
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white"
+                  >
+                    {copiedLink ? (
+                      <>
+                        <Check className="w-4 h-4 mr-2" />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Share2 className="w-4 h-4 mr-2" />
+                        Share
+                      </>
+                    )}
+                  </Button>
+                  <button
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white text-2xl font-bold"
+                    onClick={() => setSelectedProject(null)}
+                    aria-label="Close"
+                  >
+                    &times;
+                  </button>
+                </div>
                 <div className="flex items-start gap-4">
                   <img
                     src={selectedProject.image || "/placeholder.svg"}
