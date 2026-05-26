@@ -44,7 +44,7 @@ import ProjectCard, {
   getCategoryColor,
   getStatusColor,
 } from "@/components/project-card";
-import { getLatestProjects } from "@/lib/projects";
+import { getFeaturedProjects } from "@/lib/projects";
 import Link from "next/link";
 
 const journeySteps = [
@@ -151,7 +151,7 @@ const skills = [
 ];
 
 // Get the latest 3 projects for the main page
-const latestProjects = getLatestProjects(3);
+const latestProjects = getFeaturedProjects().slice(0, 3);
 
 export default function JourneyPortfolio() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

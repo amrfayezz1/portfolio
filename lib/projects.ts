@@ -2,6 +2,31 @@ import type { Project } from "@/components/project-card";
 
 export const allProjects: Project[] = [
   {
+    id: "real-estate-calculator",
+    title: "Real Estate Payment & Cash Flow Calculator",
+    description:
+      "A financial planning tool for real estate buyers in Egypt to model payment schedules, track milestones, and project cash flow across custom installment plans.",
+    longDescription:
+      "A sophisticated real estate financial planning calculator built for the Egyptian property market.\n\n" +
+      "**Key Features:**\n" +
+      "- Interactive milestone-based payment schedule builder\n" +
+      "- Cash flow projections with month-by-month breakdown\n" +
+      "- Extra payment tracking and management\n" +
+      "- Summary cards with running totals and financial metrics\n" +
+      "- Import / export data via JSON for saving and sharing plans\n" +
+      "- Persistent state via localStorage — picks up where you left off\n" +
+      "- Fully responsive dark UI with a premium editorial aesthetic",
+    image: "/imgs/PortfolioImgs/RealEstate.png",
+    liveUrl: "https://real-estate-calculator-eg.vercel.app/",
+    githubUrl: undefined,
+    videoUrl: "/imgs/PortfolioImgs/RealEstate.mp4",
+    category: "personal",
+    technologies: ["React", "Vite", "Tailwind CSS", "localStorage API"],
+    timeline: "2026",
+    status: "maintained",
+    featured: true,
+  },
+  {
     id: "araneb",
     title: "Araneb - Rabbit Farm Tracker",
     description: "A mobile rabbit farm tracker with offline-first data sync.",
